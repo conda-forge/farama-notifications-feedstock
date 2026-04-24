@@ -1,13 +1,13 @@
 {% set name = "farama-notifications" %}
-{% set version = "0.0.4" %}
+{% set version = "0.0.6" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/Farama-Notifications-{{ version }}.tar.gz
-  sha256: 13fceff2d14314cf80703c8266462ebf3733c7d165336eee998fc58e545efd18
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name | replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: b19acac4bb41d76e59e03394b5dd165f4761c86fa327f56307a35cbee3b60158
 
 build:
   noarch: python
