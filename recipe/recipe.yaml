@@ -1,0 +1,45 @@
+schema_version: 1
+
+context:
+  version: "0.0.6"
+
+package:
+  name: farama-notifications
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/f/farama-notifications/farama_notifications-${{ version }}.tar.gz
+  sha256: b19acac4bb41d76e59e03394b5dd165f4761c86fa327f56307a35cbee3b60158
+
+build:
+  number: 0
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pip
+    - setuptools >=42
+  run:
+    - python >=${{ python_min }}
+
+tests:
+  - python:
+      imports:
+        - farama_notifications
+      pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
+
+about:
+  homepage: https://github.com/Farama-Foundation/Farama-Notifications
+  repository: https://github.com/Farama-Foundation/Farama-Notifications
+  summary: Notifications for all Farama Foundation maintained libraries.
+  license: MIT
+  license_file: LICENSE
+
+extra:
+  recipe-maintainers:
+    - ChristofKaufmann
